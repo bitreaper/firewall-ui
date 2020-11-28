@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# must be run as root, otherwise won't work for iptables changes.
+
+SERVER_ALIVE=$(ps -ef | grep 'firewall-ui.py' | grep -v grep | wc -l)
+
+if [[ $SERVER_ALIVE < 2 ]]; then
+    echo firewall-ui isnt alive $SERVER_ALIVE
+    sudo su -l bitreaper -c 'screen -d -m -S firewall-ui /usr/bin/python3 /home/bitreaper/firewallui/firewall-ui.py'
+else
+    echo firewall-ui is working $SERVER_ALIVE
+fi
+
+SERVER_ALIVE=''
+SERVER_ALIVE=$(ps -ef | grep 'firewall-exec.py' | grep -v grep | wc -l)
+
+if [[ $SERVER_ALIVE < 2 ]]; then
+    echo firewall-exec isnt alive $SERVER_ALIVE
+    screen -d -m -S firewall-exec /usr/bin/python3 /home/bitreaper/firewallui/firewall-exec.py
+else
+    echo firewall-exec is working $SERVER_ALIVE
+fi

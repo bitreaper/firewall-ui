@@ -1,0 +1,87 @@
+
+{
+    "aidans_computer": {
+	    "rules" : [
+            ["LAN_OUTBOUND", "-s 192.168.0.38/32 -j DROP"]
+        ],
+        "schedule": {
+            "block": [
+                "30,22,*,*,sun",
+                "30,22,*,*,mon",
+                "30,22,*,*,tue",
+                "30,22,*,*,wed",
+                "30,22,*,*,thu",
+                "30,23,*,*,fri",
+                "30,23,*,*,sat"
+            ],
+            "open": [
+                "0,7,*,*,*"
+            ]
+        }
+    },
+    "aidans_games": {
+	    "rules" : [
+            ["LAN_OUTBOUND", "-s 192.168.0.38/32 -p tcp --sport 3074 -j DROP"],
+            ["LAN_OUTBOUND", "-s 192.168.0.38/32 -p udp --sport 3074 -j DROP"]
+        ],
+        "schedule": {
+            "block": [
+                "30,22,*,*,sun",
+                "30,22,*,*,mon",
+                "30,22,*,*,tue",
+                "30,22,*,*,wed",
+                "30,22,*,*,thu",
+                "30,23,*,*,fri",
+                "30,23,*,*,sat"
+            ],
+            "open": [
+                "0,7,*,*,*"
+            ]
+        }
+    },
+    "aidans_phone": {
+	    "rules" : [
+            ["LAN_OUTBOUND", "-s 192.168.0.57/32 -j DROP"]
+        ],
+        "schedule": {
+            "block": ["0,22,*,*,*"],
+            "open": ["0,7,*,*,*"]
+        }
+    },
+    "switch": {
+	    "rules" : [
+            ["LAN_OUTBOUND", "-s 192.168.0.101/32 -j DROP"]
+        ],
+        "schedule": {
+            "block": ["0,1,*,*,*"],
+            "open": ["0,7,*,*,*"]
+        }
+    },
+    "kaelyns_computer": {
+	    "rules" : [
+            ["LAN_OUTBOUND", "-s 192.168.0.45/32 -j DROP"]
+        ],
+        "schedule": {
+            "block": ["0,22,*,*,*"],
+            "open": ["0,7,*,*,*"]
+        }
+    },
+    "kaelyns_phone": {
+	    "rules" : [
+            ["LAN_OUTBOUND", "-s 192.168.0.59/32 -j DROP"]
+        ],
+        "schedule": {
+            "block": ["0,22,*,*,*"],
+            "open": ["0,7,*,*,*"]
+        }
+    },
+    "orange_phone": {
+	    "rules" : [
+            ["LAN_OUTBOUND", "-s 192.168.0.56/32 -j DROP"]
+        ],
+        "schedule": {
+            "block": ["0,22,*,*,*"],
+            "open": ["0,7,*,*,*"]
+        }
+    }
+}
