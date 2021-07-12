@@ -14,5 +14,5 @@ To run it:
 - create a chain that you will use.  Or don't, but either way you will need to specify the chain name in the rules file.
 - use the serverStartScript.  Edit it to have the right location of the files, and place it in /etc/cron.hourly.  This will start the server process using screen.  I do this on other python services that I have created because it allows me to monitor it real time.  It isn't completely necessary though and in the future i may add files to use with systemd.
 
-
+Currently I have APSchedule in the code but not used.  This will be for a future version.
 
